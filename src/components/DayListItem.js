@@ -24,11 +24,3 @@ export default function DayListItem(props) {
     </li>
   );
 }
-
-{/* <button
-className={buttonClass}
-onClick={props.onClick}
-disabled={props.disabled}
->
-{props.children}
-</button> */}
