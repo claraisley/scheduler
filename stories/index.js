@@ -4,12 +4,14 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
 import "index.scss";
+import "components/Appointments/styles.scss";
 
 import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
+import Appointment from "components/Appointments/index";
 
 storiesOf("Button", module)
   .addParameters({
@@ -97,7 +99,7 @@ storiesOf("Button", module)
           id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
-          setInterviewer={action("setInterviewer")}
+          setInterviewer={event => action("setInterviewer")(interviewer.id)}
         />
       ));
 
@@ -126,3 +128,9 @@ storiesOf("Button", module)
             setInterviewer={action("setInterviewer")}
           />
         ));
+
+        storiesOf("Appointment", module)
+        .addParameters({
+          backgrounds: [{ name: "white", value: "#fff", default: true }]
+        }).add("Appointment", () => <Appointment />)
+          .add("Appointment with Time", () => <Appointment time="12pm" />);
