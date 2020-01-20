@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 import "components/Application.scss";
-import DayList from "components/DayList"
+import DayList from "components/DayList";
+
+
 
 const days = [
   {
@@ -23,6 +25,7 @@ const days = [
 
 export default function Application(props) {
   const [day, setDay] = useState("Monday");
+  const [interviewer, setInterviewer] =useState(1);
 
   return (
     <main className="layout">
@@ -46,6 +49,7 @@ export default function Application(props) {
   alt="Lighthouse Labs"
 /> 
       </section>
+
       <section className="schedule">
         {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
       </section>
