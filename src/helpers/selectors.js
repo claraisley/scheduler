@@ -8,11 +8,11 @@ export function getAppointmentsForDay(state, day) {
     if (nameMatch.length === 0) {
       return [];
     }
-   nameMatch[0].appointments;
+  const dayName = nameMatch[0].appointments;
 
   const array = [];
 
-  nameMatch[0].appointments.forEach(apptKey => {
+  dayName.forEach(apptKey => {
     array.push(state.appointments[apptKey]);
 
   })
