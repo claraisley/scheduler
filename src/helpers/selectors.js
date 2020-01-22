@@ -29,3 +29,23 @@ export function getInterview(state, interview) {
 
    return {student: interview.student, interviewer: newInterview}
 }
+
+export function getInterviewersForDay(state, day) {
+
+  if (state.days.length === 0) {
+    return [];
+  } 
+
+  const nameMatch  = state.days.filter(d => d.name === day);
+    if (nameMatch.length === 0) {
+      return [];
+    }
+  const dayName = nameMatch[0].interviewers;
+
+  const array = [];
+
+  dayName.forEach(IntKey => {
+    array.push(state.interviewers[IntKey]);
+  })
+  return array;
+}
