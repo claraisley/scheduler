@@ -31,15 +31,12 @@ export default function Application(props) {
 
     return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-    setState({
-      ...state,
+    setState(prev => ({
+      ...prev,
       appointments
     })
-  }).catch((error) => {
-    console.log(error)
-  })
+  )})
 }
-
   function cancelInterview(id) {
 
   const appointment = {
@@ -58,8 +55,6 @@ setState({
   ...state,
   appointments
 })
-}).catch((error) => {
-console.log(error)
 })
 }
 
@@ -74,7 +69,9 @@ console.log(error)
      
     ]).then((all) => {
       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
-    })
+    }).catch((error) => {
+      console.log(error)
+      })
   }, [])
   
  
