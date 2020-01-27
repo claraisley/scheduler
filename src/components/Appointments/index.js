@@ -56,11 +56,11 @@ export default function Appointment(props) {
     transition(CONFIRM)
   }
 
-  console.log("mode", mode)
 
   return (
     <Fragment>
-          <article className="appointment">
+          <article className="appointment" data-testid="appointment">
+          
       <Header 
         time={props.time}
       />
