@@ -27,9 +27,7 @@ function bookInterview(id, interview) {
 
   return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
-      const dayObj = state.days.find(day => day.name === state.day);
-      state.days[dayObj.id - 1].spots--;
-      dispatch({ type: SET_INTERVIEW, id, interview })
+      dispatch({ type: SET_INTERVIEW, id, interview });
 })
 }
 
@@ -43,8 +41,6 @@ const appointment = {
 
 return axios.delete(`/api/appointments/${id}`, appointment)
 .then(() => {
-  const dayObj = state.days.find(day => day.name === state.day);
-  state.days[dayObj.id - 1].spots++;
   dispatch({ type: SET_INTERVIEW, id, interview: null });
 })
 }

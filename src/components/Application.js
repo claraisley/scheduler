@@ -11,7 +11,7 @@ import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "help
 
    
 
-export default function Application(props) {
+export default function Application() {
 
   const {
     state,
