@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Shows user that an appt is saving or deleting
 
 export default function Status(props) {
 

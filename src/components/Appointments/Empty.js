@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Empty appointment view
 
 export default function Empty(props) {
 

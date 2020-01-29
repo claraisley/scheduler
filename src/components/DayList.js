@@ -2,6 +2,8 @@ import React from "react";
 
 import DayListItem from "components/DayListItem";
 
+// Lists the days and spots in nav sidebar
+
 export default function DayList(props) {
   const days = props.days.map(day => {
     return (

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// First time for appointments on the page (eg. 12pm)
 
 export default function Header(props) {
 

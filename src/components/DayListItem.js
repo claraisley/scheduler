@@ -3,6 +3,8 @@ import "components/DayListItem.scss";
 
 import classnames from 'classnames';
 
+// Determines number of spots left for a day, as well as formatting for each day if the day is clicked or not
+
 export default function DayListItem(props) {
   function formatSpots() {
     if (props.spots === 0) {

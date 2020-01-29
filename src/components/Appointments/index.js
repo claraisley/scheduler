@@ -11,6 +11,8 @@ import Confirm from "components/Appointments/Confirm";
 import Error from "components/Appointments/Error";
 import useVisualMode from "hooks/useVisualMode";
 
+// Contains all different modes for booking, cancelling and editing an appt
+
 export default function Appointment(props) {
 
   const EMPTY = "EMPTY";
@@ -27,6 +29,8 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  // Saves an interview
+
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -39,19 +43,21 @@ export default function Appointment(props) {
     .catch(() => transition(ERROR_SAVE, true));
   }
 
+  // Cancels an appointment
+
   function destroy(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };
 
-
     transition(DELETING, true)
     props.cancelInterview(props.id, interview)
     .then(() => transition(EMPTY))
     .catch(() => transition(ERROR_DELETE, true))
-
   }
+
+  // Allows user to confirm deleting an appointment
 
   function confirm() {
     transition(CONFIRM)
@@ -88,6 +94,5 @@ export default function Appointment(props) {
     )}
     </article>
     </Fragment>
-
   )
 }

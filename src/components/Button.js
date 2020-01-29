@@ -1,7 +1,9 @@
 import React from "react";
 
 import "components/Button.scss";
-import classnames from 'classnames'
+import classnames from 'classnames';
+
+// Determines the button that is showed
 
 export default function Button(props) {
   const buttonClass = classnames("button", {

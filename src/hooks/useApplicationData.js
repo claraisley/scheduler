@@ -6,6 +6,7 @@ import reducer, {
   SET_INTERVIEW
 } from "reducers/application";
 
+// Loads App data from API calls
 
 export default function useApplicationData() {
   
@@ -16,6 +17,7 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
+  // Uses API call to save an interview
 
 function bookInterview(id, interview) {
 
@@ -31,6 +33,7 @@ function bookInterview(id, interview) {
 })
 }
 
+// Uses API call to cancel interview
 
 function cancelInterview(id) {
 
@@ -48,6 +51,7 @@ return axios.delete(`/api/appointments/${id}`, appointment)
 
 const setDay = day => dispatch({ type: SET_DAY, day });
 
+// Gets all appointments and interviewers for each day from API
 
 useEffect(() => {
   Promise.all([

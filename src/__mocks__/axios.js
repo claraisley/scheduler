@@ -1,3 +1,5 @@
+  // Mock data for component tests
+
   const fixtures = {
     days: [
       {
@@ -53,8 +55,9 @@
     }
   }
 
+  // Get, put and delete requests for componment tests
+  
   const regex = /^\/api\/appointments\/[0-9]+$/;
-
 
 export default {
   defaults: { baseURL: "" },

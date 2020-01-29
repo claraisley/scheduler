@@ -2,6 +2,7 @@ export const SET_DAY = "SET_DAY";
 export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 export const SET_INTERVIEW = "SET_INTERVIEW";
 
+// Gets the day index to be used to determine number of spots
 
 export function getDayIndexByAppointmentId(state, id) {
   
@@ -12,6 +13,7 @@ export function getDayIndexByAppointmentId(state, id) {
   }
 }
 
+
 export default function reducer(state, action) {
   switch (action.type) {
     case SET_DAY:
@@ -20,24 +22,29 @@ export default function reducer(state, action) {
       return { ...state, days: action.days, appointments: action.appointments, interviewers: action.interviewers }
     case SET_INTERVIEW: {
       const { id, interview } = action;
-      const dayIndex = getDayIndexByAppointmentId(state, action.id);
-      const newDays = [...state.days];
-      newDays[dayIndex] = {...newDays[dayIndex], spots: newDays[dayIndex].spots + (action.interview ? - 1 : 1)};
 
-      return    { ...state,
-      appointments: {
+      // Updates number of spots for a day depending on state after an interview is set 
+
+      const dayIndex = getDayIndexByAppointmentId(state, action.id);
+      const newDays = JSON.parse(JSON.stringify(state.days))
+      const appointments =  {
         ...state.appointments,
         [id]: {
           ...state.appointments[action.id],
-          interview:action.interview ? { ...interview } : null
+          interview:action.interview ? interview  : null
         }
-      },
+      }
+      newDays[dayIndex].spots = state.days[dayIndex].appointments.length - 
+      state.days[dayIndex].appointments.filter((id) => appointments[id].interview).length
+
+      return    { ...state,
+      appointments,
       days: newDays
+    } 
     }
-  }
-  default:
-    throw new Error(
-      `Tried to reduce with unsupported action type: ${action.type}`
-    );
+    default:
+      throw new Error(
+        `Tried to reduce with unsupported action type: ${action.type}`
+      );
   }
 }

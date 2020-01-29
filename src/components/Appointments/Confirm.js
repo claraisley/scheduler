@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from "components/Button";
 
+// CONFIRM view for appointment
+
 export default function Confirm(props) {
 
   return (

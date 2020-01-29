@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { render, cleanup, waitForElement, fireEvent, prettyDOM, getAllByTestId, getByText, getByAltText, getByPlaceholderText, queryByText, queryByAltText, getByDisplayValue } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, getAllByTestId, getByText, getByAltText, getByPlaceholderText, queryByText, queryByAltText, getByDisplayValue } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -67,7 +67,7 @@ describe("Appointment", () => {
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
-    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
+    expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
 
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
@@ -95,7 +95,7 @@ describe("Appointment", () => {
       queryByText(day, "Monday")
     );
   
-    expect(getByText(day, "no spots remaining")).toBeInTheDocument();
+    expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
   it("shows the save error when failing to save an appointment", async () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Error view for an appointment
 
 export default function Error(props) {
 

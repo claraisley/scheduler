@@ -1,3 +1,5 @@
+// Gets all interviews booked for a certain day
+
 export function getAppointmentsForDay(state, day) {
 
   if (state.days.length === 0) {
@@ -19,6 +21,8 @@ export function getAppointmentsForDay(state, day) {
   return array;
 }
 
+// Returns a specific interview
+
 export function getInterview(state, interview) {
 
   if (interview === null) {
@@ -29,6 +33,8 @@ export function getInterview(state, interview) {
 
   return {student: interview.student, interviewer: newInterview}
 }
+
+// Gets all of the interviewers for a particular day
 
 export function getInterviewersForDay(state, day) {
 
